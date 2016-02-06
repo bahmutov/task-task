@@ -111,6 +111,20 @@ describe('task-task', () => {
       )
   })
 
+  it('can compare task results', done => {
+    const larger = (a, b) => a > b ? a : b
+    const add2to3 = addTask(2, 3)
+    const double5 = doubleTask(5)
+    const largerTask = taskTask(add2to3, double5, larger)
+    largerTask.fork(
+      err => la(false, err),
+      result => {
+        la(result === 10, 'wrong result', result)
+        done()
+      }
+    )
+  })
+
   it('can combine add with double', done => {
     const add2to3 = addTask(2, 3)
     const double5 = doubleTask(5)

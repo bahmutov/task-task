@@ -73,7 +73,23 @@ const outputTask = task1.chain(value1 => task2.map(value2 => op(value1, value2))
 ```
 
 This is too long, and too much boilerplate. This is where `task-task` comes in handy.
+Instead of writing `.chain .map ...` functions, provide 3 arguments to get new Task.
+Same comparison between two tasks as above
 
+```js
+const taskTask = require('task-task')
+const larger = (a, b) => a > b ? a : b
+const add2to3 = addTask(2, 3)
+const double5 = doubleTask(5)
+const largerTask = taskTask(add2to3, double5, larger)
+```
+
+That's it. Let me know if a complete reduction would be useful, as in
+
+```
+taskTask(task1, task2, op1, task3, op2)
+// same as (task1 op1 task2) op2 (task3)
+```
 
 ## How is this different from a Promise?
 
