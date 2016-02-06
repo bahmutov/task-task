@@ -1,7 +1,7 @@
 {
   "name": "task-task",
   "version": "1.0.0",
-  "description": "Combines multiple Task instances into single reduced chain.",
+  "description": "Postfix Task combinator without boilerplate",
   "main": "task-task.js",
   "scripts": {
     "test": "mocha spec/spec.js",

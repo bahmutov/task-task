@@ -1,4 +1,4 @@
-const tasks = require('..')
+const taskTask = require('..')
 const la = require('lazy-ass')
 const is = require('check-more-types')
 const Task = require('data.task')
@@ -76,10 +76,52 @@ describe('normal Tasks', () => {
         }
       )
   })
+
+  it('can compare task results', done => {
+    const larger = (a, b) => a > b ? a : b
+    const add2to3 = addTask(2, 3)
+    const double5 = doubleTask(5)
+    const largerTask = add2to3.chain(sum => double5.map(doubled => larger(sum, doubled)))
+    largerTask.fork(
+      err => la(false, err),
+      result => {
+        la(result === 10, 'wrong result', result)
+        done()
+      }
+    )
+  })
 })
 
 describe('task-task', () => {
   it('is a function', () => {
-    la(is.fn(tasks))
+    la(is.fn(taskTask))
+  })
+
+  it('can combine two add tasks using operation', done => {
+    const add2to3 = addTask(2, 3)
+    const add10to1 = addTask(10, 1)
+    const addSums = taskTask(add2to3, add10to1, (a, b) => a + b)
+    addSums
+      .fork(
+        err => la(false, err),
+        result => {
+          la(result === 16, 'wrong result', result)
+          done()
+        }
+      )
+  })
+
+  it('can combine add with double', done => {
+    const add2to3 = addTask(2, 3)
+    const double5 = doubleTask(5)
+    const compareTask = taskTask(add2to3, double5, (a, b) => a > b)
+    compareTask
+      .fork(
+        err => la(false, err),
+        result => {
+          la(result === false, 'wrong result', result)
+          done()
+        }
+      )
   })
 })
