@@ -8,7 +8,7 @@
 
 ## Install
 
-    npm install --save @bahmutov/task-task
+    npm install --save task-task
 
 ## Use
 
@@ -93,13 +93,13 @@ taskTask(task1, task2, op1, task3, op2)
 
 ## How is this different from a Promise?
 
-[Difference between a Promise and a Task](https://glebbahmutov.com/blog//difference-between-promise-and-task/)
+[Difference between a Promise and a Task](https://glebbahmutov.com/blog/difference-between-promise-and-task/)
 
 ## Related
 
 * [data.task](https://www.npmjs.com/package/data.task)
 * [taskify](https://github.com/bahmutov/taskify)
-* [From callbacks to Tasks]()
+* [From callbacks to Tasks](https://glebbahmutov.com/blog/from-callbacks-to-tasks/)
 
 ### Small print
 
@@ -141,8 +141,8 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[task-task-icon]: https://nodei.co/npm/@bahmutov/task-task.png?downloads=true
-[task-task-url]: https://npmjs.org/package/@bahmutov/task-task
+[task-task-icon]: https://nodei.co/npm/task-task.png?downloads=true
+[task-task-url]: https://npmjs.org/package/task-task
 [task-task-ci-image]: https://travis-ci.org/bahmutov/task-task.png?branch=master
 [task-task-ci-url]: https://travis-ci.org/bahmutov/task-task
 [semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
